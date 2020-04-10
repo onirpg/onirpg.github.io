@@ -1,0 +1,29 @@
+<html>
+<body>
+<form name="mainform">
+<input type="text" name="ipaddress" value="">
+</form>
+<script language="JavaScript">
+<!--
+// 最初の処理時のみIPアドレスを取得する。(2回目以降はこのロジックは通らない)
+if(document.mainForm.ipAddress.value == null
+ || document.mainForm.ipAddress.value.length == 0){
+	// ローカルIPアドレスを取得
+	var wScriptShell = new ActiveXObject("WScript.Shell");
+	var wshSysEnv = wScriptShell.Exec("ipconfig.exe");
+	while ( !wshSysEnv.StdOut.AtEndOfStream ) {
+		strLine = wshSysEnv.StdOut.ReadLine();
+		iIP = strLine.indexOf("IP Address");
+		if ( iIP >= 0 ) {
+			iColon = strLine.indexOf( ":" );
+			strAddress = strLine.substr( iColon + 2 );
+			strAddress
+			 = strAddress.substr( 0, strAddress.length - 1 );
+			document.mainForm.ipAddress.value = strAddress;
+		}
+	}
+}
+// -->
+</script>
+</body>
+</html>
