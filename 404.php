@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Error 404</title>
+  </head>
+  <body>
+    <h1 style="text-align:center">404 Not Found</h1>
+<font face="Comic Sans MS"><p>お客様のお探しのページは見つかりませんでした。</p>
+<p>ページが移動した、または削除されたなどの理由が考えられます。</p>
+<p>URLをもう一度ご確認なさってからアクセスしてください。</p></font>
+<p>アクセス元ipアドレス:<?php echo $_SERVER['REMOTE_ADDR']; ?></p>
+  <from>
+    <input type="button" onclick="history.back()" value="戻る">
+    </from>
+
+  </body>
+</html>
